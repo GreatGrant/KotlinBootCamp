@@ -3,14 +3,17 @@ package introduction
 fun main(){
     var fortune : String
     for ( i in 1..10){
-        fortune = getFortuneCookie()
+        fortune = getFortuneCookie(getBirthday())
         print( "Your fortune is: $fortune")
         if (fortune.contains("Take it easy")) break
     }
 
 }
-
-fun getFortuneCookie() : String{
+fun getBirthday(): Int {
+    print("\nEnter your birthday\n")
+     return readln().toIntOrNull() ?: 1
+}
+fun getFortuneCookie(birthday: Int) : String{
 
     var fortunes = arrayListOf(
         "You will have a great day!",
@@ -22,8 +25,11 @@ fun getFortuneCookie() : String{
         "Treasure your friends because they are your greatest fortune."
     )
 
-    print("\nEnter your birthday\n")
-    val birthday = readln()?.toIntOrNull()?: 1
-    return fortunes[birthday.rem(fortunes.size)]
+    val fortuneSelected = when (birthday) {
+        in 1..20 -> 7
+        in 21..30 -> 2
+        else -> birthday.rem(fortunes.size)
+    }
+    return fortunes[fortuneSelected]
 
 }
