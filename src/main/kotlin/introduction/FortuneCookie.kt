@@ -1,12 +1,18 @@
 package introduction
 
 fun main(){
-    print( "Your fortune is: ${getFortuneCookie()}")
+    var fortune : String
+    for ( i in 1..10){
+        fortune = getFortuneCookie()
+        print( "Your fortune is: $fortune")
+        if (fortune.contains("Take it easy")) break
+    }
+
 }
 
 fun getFortuneCookie() : String{
 
-    var fortunes = arrayListOf<String>(
+    var fortunes = arrayListOf(
         "You will have a great day!",
         "Things will go well for you today.",
         "Enjoy a wonderful day of success.",
@@ -16,7 +22,7 @@ fun getFortuneCookie() : String{
         "Treasure your friends because they are your greatest fortune."
     )
 
-    print("Enter your birthday\n")
+    print("\nEnter your birthday\n")
     val birthday = readln()?.toIntOrNull()?: 1
     return fortunes[birthday.rem(fortunes.size)]
 
