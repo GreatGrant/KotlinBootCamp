@@ -7,6 +7,10 @@ fun main(){
     val food = getFishFood(day)
     println("Feed the fish $food on $day")
     if (shouldChangeWater(day)) println("Change water today")
+    canAddFish(10.0, listOf(3,3,3)) //---> false
+    canAddFish(8.0, listOf(2,2,2), hasDecorations = false) //---> true
+    canAddFish(9.0, listOf(1,1,3), 3) //---> false
+    canAddFish(10.0, listOf(), 7, true) //---> true
 }
 
 fun getFishFood(day: String): String {
@@ -23,6 +27,16 @@ fun shouldChangeWater(day: String,
                       temperature: Int = 22,
                       dirty: Int = 20 ): Boolean {
     return true
+}
+fun canAddFish(tankSize: Int,
+               currentFish: List<Int>,
+               fishSize: Int = 2,
+               hasDecorations: Boolean = true): Boolean{
+    if (hasDecorations && fishSize <=0.8 * tankSize){
+        return false
+    }else if(!hasDecorations && fishSize == tankSize){
+        return false
+    }
 }
 fun getFeedingDate(): String{
     val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
