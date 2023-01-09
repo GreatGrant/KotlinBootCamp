@@ -28,15 +28,14 @@ fun shouldChangeWater(day: String,
                       dirty: Int = 20 ): Boolean {
     return true
 }
-fun canAddFish(tankSize: Int,
+fun canAddFish(tankSize: Double,
                currentFish: List<Int>,
                fishSize: Int = 2,
                hasDecorations: Boolean = true): Boolean{
-    if (hasDecorations && fishSize <=0.8 * tankSize){
-        return false
-    }else if(!hasDecorations && fishSize == tankSize){
-        return false
-    }
+
+    return (tankSize * if (hasDecorations) 0.8 else 1.0) >= (currentFish.sum() + fishSize)
+
+
 }
 fun getFeedingDate(): String{
     val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
