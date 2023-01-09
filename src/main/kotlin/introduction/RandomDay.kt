@@ -3,6 +3,7 @@ package introduction
 import java.util.Random
 
 fun main(){
+
     val day = getFeedingDate()
     val food = getFishFood(day)
     println("Feed the fish $food on $day")
