@@ -3,7 +3,8 @@ fun main(){
     val mood = readln()
     println("How's the weather like today?")
     val weather = readln()
-    print(whatShouldIdoToday(mood = mood, weather = weather))
+    print("Mood is $mood and weather is $weather")
+    print(whatShouldIdoToday(mood = mood.trim(), weather = weather.trim()))
 }
 
 fun whatShouldIdoToday(mood: String,
@@ -17,3 +18,4 @@ fun whatShouldIdoToday(mood: String,
         else -> { "Just stay home, homie"}
     }
 }
+

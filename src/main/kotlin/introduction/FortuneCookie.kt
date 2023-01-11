@@ -1,17 +1,15 @@
 package introduction
 
 fun main(){
-    var fortune : String
-    for ( i in 1..10){
+    var fortune : String = ""
+
+    while (!fortune.contains("Take it easy")){
         fortune = getFortuneCookie(getBirthday())
         print( "Your fortune is: $fortune")
-        if (fortune.contains("Take it easy")) break
     }
 
-}
-fun getBirthday(): Int {
-    print("\nEnter your birthday\n")
-     return readln().toIntOrNull() ?: 1
+
+
 }
 fun getFortuneCookie(birthday: Int) : String{
 
@@ -33,3 +31,24 @@ fun getFortuneCookie(birthday: Int) : String{
     return fortunes[fortuneSelected]
 
 }
+
+fun getBirthday(): Int {
+    print("\nEnter your birthday\n")
+    return readln().toIntOrNull() ?: 1
+}
+fun whatShouldIdo(mood: String, temperature: Int = 24, weather: String = "sunny"): String{
+    return when{
+        isHappySunny(mood, temperature, weather) -> "Go for a walk"
+        isSadRainyCold(mood, temperature, weather) -> "Stay indoors and take coffee"
+        isVeryHot(mood, temperature, weather) -> "Go to the beach"
+        else -> {"Just browse social media"}
+    }
+}
+
+fun isHappySunny(mood: String, temperature: Int, weather: String) =
+    mood == "Go for a walk" && temperature == 28 && weather == "sunny"
+
+fun isSadRainyCold(mood: String, temperature: Int, weather: String) =
+    mood == "Sad" && temperature <= 10 && weather == "cold"
+
+fun isVeryHot(mood: String, temperature: Int, weather: String) = temperature >= 28
