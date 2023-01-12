@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     val fishName = "Tilapia"
     var result = ""
     result = when(fishName.length){
-        0 -> "An error occured"
+        0 -> "An error occurred"
         in 3..12 -> "Good fish name"
         else -> "Ok good fish name"
     }
