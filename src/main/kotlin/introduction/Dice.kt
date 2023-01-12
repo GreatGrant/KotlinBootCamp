@@ -6,6 +6,7 @@ fun main(){
  repeat(6){
      println("Dice rolled, result ${rollDice(6)}")
  }
+    gamePlay(rollDice(6))
 }
 
 //Lambda function
@@ -14,4 +15,6 @@ val rollDice: (Int) -> Int = {sides ->
     else 0
 }
 
-//Function type annotation
+fun gamePlay(operator: Int){
+    print("called from gameplay: $operator")
+}
