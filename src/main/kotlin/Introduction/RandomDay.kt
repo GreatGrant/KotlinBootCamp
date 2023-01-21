@@ -1,4 +1,4 @@
-package introduction
+package Introduction
 
 import java.util.Random
 
