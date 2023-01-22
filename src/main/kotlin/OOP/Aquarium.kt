@@ -5,7 +5,10 @@ class Aquarium(
     var height: Int = 20,
     var length: Int = 15
 ) {
-
+    constructor(weight: Int) : this(){
+        var weight = weight
+        println("Secondary const. weight is $weight")
+    }
     var volume: Int
         get() = width.times(height).times(length) / 1000
         set(value) {

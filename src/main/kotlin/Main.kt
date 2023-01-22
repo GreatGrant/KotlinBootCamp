@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
 
     println("The spice name is ${curry.name}, and the spiciness is ${curry.heat}")
 
-    var myAquarium = Aquarium()
+    var myAquarium = Aquarium(weight = 23)
     println("Length of aquarium is ${myAquarium.length},\n height is ${myAquarium.height}" +
             " and width is ${myAquarium.width}")
 }
