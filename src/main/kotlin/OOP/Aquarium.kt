@@ -15,3 +15,10 @@ class Aquarium(
             height = value.times(1000) / width.times(length)
         }
 }
+
+fun main(){
+    var myAquarium = Aquarium(weight = 23)
+    println("Length of aquarium is ${myAquarium.length},\n height is ${myAquarium.height}" +
+            " and width is ${myAquarium.width}")
+
+}

@@ -8,3 +8,12 @@ class SimpleSpice {
 
 
 }
+
+fun main(){
+    var curry = SimpleSpice()
+    curry.name = "Curry"
+    curry.spiciness = "hot"
+
+    println("The spice name is ${curry.name}, and the spiciness is ${curry.heat}")
+
+}
