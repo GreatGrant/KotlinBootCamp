@@ -1,7 +1,7 @@
 package oop
 
 abstract class Spices(
-    name: String,
+    var name: String,
     private var spiciness: String = "mild"
 ) {
 
@@ -35,7 +35,7 @@ object YellowSpiceColor : SpiceColor {
 
 }
 
-class Curry(var name: String = "Curry", spiciness: String = "mild") :
+class Curry(name: String = "Curry", spiciness: String = "mild") :
     Spices(name, spiciness), Grinder{
 
     override fun prepareSpice() {
