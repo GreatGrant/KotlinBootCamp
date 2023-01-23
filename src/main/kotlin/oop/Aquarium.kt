@@ -1,4 +1,4 @@
-package OOP
+package oop
 
 class Aquarium(
     var width: Int = 23,

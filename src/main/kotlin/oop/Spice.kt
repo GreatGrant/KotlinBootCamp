@@ -1,4 +1,4 @@
-package OOP
+package oop
 
 class Spice(
     var name: String,

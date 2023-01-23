@@ -1,4 +1,4 @@
-package OOP
+package oop
 
 open class Book(val title: String, val author: String) {
     private var _currentPage = 0

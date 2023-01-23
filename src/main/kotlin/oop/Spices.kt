@@ -1,7 +1,7 @@
-package OOP
+package oop
 
 abstract class Spices(
-    private var name: String,
+    name: String,
     private var spiciness: String = "mild"
 ) {
 
@@ -18,6 +18,8 @@ abstract class Spices(
     init {
         println("$name is $spiciness with output: $heat")
     }
+
+    abstract val color: SpiceColor
 }
 
 interface Grinder {
@@ -28,25 +30,28 @@ interface SpiceColor {
     val color: String
 }
 
-object YellowSpiceColor: SpiceColor{
-    override val color: String
-        get() = "Yellow"
+object YellowSpiceColor : SpiceColor {
+    override val color: String = "Yellow"
 
 }
 
-class Curry(private var name: String = "Curry", spiciness: String = "mild", color: SpiceColor = YellowSpiceColor) :
-    Spices(name, spiciness), Grinder, SpiceColor by YellowSpiceColor{
+class Curry(var name: String = "Curry", spiciness: String = "mild") :
+    Spices(name, spiciness), Grinder{
 
     override fun prepareSpice() {
         println("Preparing $name")
     }
 
+    override val color = YellowSpiceColor
+
     override fun grind() {
         println("Grinding $name")
     }
 
+
 }
 
 fun main() {
-
+    val curry = Curry()
+    println("${curry.name} is color ${curry.color}")
 }
