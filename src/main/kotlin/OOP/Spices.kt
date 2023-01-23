@@ -24,6 +24,9 @@ interface Grinder{
     fun grind()
 }
 
+interface SpiceColor{
+    var color: String
+}
 
 
 class Curry(private var name: String = "Curry", spiciness: String="mild"): Spices(name), Grinder{
