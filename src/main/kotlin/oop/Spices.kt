@@ -53,5 +53,5 @@ class Curry(var name: String = "Curry", spiciness: String = "mild") :
 
 fun main() {
     val curry = Curry()
-    println("${curry.name} is color ${curry.color}")
+    println("${curry.name} is color ${curry.color.color}")
 }
