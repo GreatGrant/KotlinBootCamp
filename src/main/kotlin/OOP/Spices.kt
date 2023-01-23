@@ -28,8 +28,11 @@ interface SpiceColor{
     var color: String
 }
 
+object YellowSpiceColor{
 
-class Curry(private var name: String = "Curry", spiciness: String="mild"): Spices(name), Grinder{
+}
+
+class Curry(private var name: String = "Curry", spiciness: String="mild"): Spices(name, spiciness), Grinder{
     override fun prepareSpice() {
         println("Preparing $name")
     }
