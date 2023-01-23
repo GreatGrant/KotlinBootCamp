@@ -1,4 +1,4 @@
-package Introduction
+package introduction
 import java.time.LocalTime
 
 fun main(args: Array<String>){

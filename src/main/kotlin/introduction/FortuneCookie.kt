@@ -1,4 +1,4 @@
-package Introduction
+package introduction
 
 fun main(){
     var fortune : String = ""
