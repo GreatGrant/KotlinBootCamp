@@ -20,19 +20,23 @@ abstract class Spices(
     }
 }
 
-interface Grinder{
+interface Grinder {
     fun grind()
 }
 
-interface SpiceColor{
-    var color: String
+interface SpiceColor {
+    val color: String
 }
 
-object YellowSpiceColor{
+object YellowSpiceColor: SpiceColor{
+    override val color: String
+        get() = "Yellow"
 
 }
 
-class Curry(private var name: String = "Curry", spiciness: String="mild"): Spices(name, spiciness), Grinder{
+class Curry(private var name: String = "Curry", spiciness: String = "mild", color: SpiceColor = YellowSpiceColor) :
+    Spices(name, spiciness), Grinder, SpiceColor by YellowSpiceColor{
+
     override fun prepareSpice() {
         println("Preparing $name")
     }
@@ -42,6 +46,7 @@ class Curry(private var name: String = "Curry", spiciness: String="mild"): Spice
     }
 
 }
+
 fun main() {
 
 }
