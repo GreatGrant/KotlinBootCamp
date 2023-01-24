@@ -7,8 +7,36 @@ Create a method that returns the title, author and year as a Triple. Use the doc
 Create a book instance.
 Print out the information about the book in a sentence, such as: “Here is your book X written by Y in Z.”
 * */
-data class Book(var title: String, var author: String, var year: Int)
 
+object Constants {
+    const val MAX_BORROWED_BOOKS = 3
+    const val BASE_URL = "https://library.com/catalog/"
+}
+
+data class Book(var title: String, var author: String, var year: Int){
+    fun canBorrow(): Boolean {
+           // Get the current number of borrowed books for the user
+        val currentBorrowedBooks = getCurrentBorrowedBooks()
+
+        if (currentBorrowedBooks >= Constants.MAX_BORROWED_BOOKS) {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+fun printUrl() {
+        val bookTitle = "Book Title"
+        val url = "${Constants.BASE_URL}$bookTitle.html"
+        println(url)
+    }
+
+    private fun getCurrentBorrowedBooks(): Int {
+        // Code to get the current number of borrowed books for the user
+        return 0
+    }
+    
 fun retrieveBookDetails(book: Book): Pair<String, String> = Pair(book.title, book.author)
 fun retrieveAllBookDetails(book: Book): Triple<String, String, Int> = Triple(book.title, book.author, book.year)
 
