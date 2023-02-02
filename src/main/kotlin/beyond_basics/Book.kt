@@ -7,7 +7,7 @@ object Constants {
 }
 
 /******************************* Model Book Class **************************************/
-data class Book(var title: String, var author: String, var year: Int){
+data class Book(var title: String, var author: String, var year: Int, var pages: Int){
     fun canBorrow(): Boolean {
            // Get the current number of borrowed books for the user
         val currentBorrowedBooks = getCurrentBorrowedBooks()
@@ -67,5 +67,11 @@ fun main() {
     val newBook = "Pride and Prejudice"
     val bookAuthor = moreBooks.getOrPut(newBook) { "Jane Austen" }
 
+    /**********************Extension function on book */
+    fun Book.weight() = this.pages * 1.5
+
+    fun Book.tornPages(pagesTorn: Int) = this.pages - pagesTorn
+
+    
 
 }
