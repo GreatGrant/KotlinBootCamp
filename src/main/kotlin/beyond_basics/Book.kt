@@ -67,11 +67,15 @@ fun main() {
     val newBook = "Pride and Prejudice"
     val bookAuthor = moreBooks.getOrPut(newBook) { "Jane Austen" }
 
-    /**********************Extension function on book */
+    /**********************Extension function on book************************/
     fun Book.weight() = this.pages * 1.5
 
     fun Book.tornPages(pagesTorn: Int) = this.pages - pagesTorn
 
-    
-
+    /********Class utilises extension functions**************/
+    class Puppy{
+        fun playWithBook(book: Book){
+            book.tornPages(5)
+        }
+    }
 }
