@@ -1,18 +1,12 @@
 package beyond_basics
 
-/*
-*Let’s create a basic book class, with a title, author, and year. Of course, you could get each of the properties separately.
-Create a method that returns both the title and the author as a Pair.
-Create a method that returns the title, author and year as a Triple. Use the documentation to find out how to use Triple.
-Create a book instance.
-Print out the information about the book in a sentence, such as: “Here is your book X written by Y in Z.”
-* */
-
+/***************************************************************************/
 object Constants {
     const val MAX_BORROWED_BOOKS = 3
     const val BASE_URL = "https://library.com/catalog/"
 }
 
+/******************************* Model Book Class **************************************/
 data class Book(var title: String, var author: String, var year: Int){
     fun canBorrow(): Boolean {
            // Get the current number of borrowed books for the user
@@ -40,6 +34,8 @@ fun printUrl() {
 fun retrieveBookDetails(book: Book): Pair<String, String> = Pair(book.title, book.author)
 fun retrieveAllBookDetails(book: Book): Triple<String, String, Int> = Triple(book.title, book.author, book.year)
 
+
+/*********************************************************************************/
 fun main() {
     val purpleHibiscus = Book(title = "Purple Hibiscus", author = "Chimamanda Adichie", 2007)
     val halfOfAYellowSun = Book(title = "Half of a yellow sun", author = "Chimamanda Adichie", 2007)
@@ -60,7 +56,8 @@ fun main() {
 
 
     var library = mapOf("Williams Shakespeare" to booksByShakespeare)
-// Checks if hamlet is contained in library
+    
+    /********************* Checks if hamlet is contained in library *********************/ 
     var isHamlet = library.any { it.value.contains("Hamlet") }
     println(isHamlet)
 
