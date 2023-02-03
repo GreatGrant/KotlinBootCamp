@@ -13,11 +13,7 @@ data class Book(var title: String, var author: String, var year: Int, var pages:
            // Get the current number of borrowed books for the user
         val currentBorrowedBooks = getCurrentBorrowedBooks()
 
-        if (currentBorrowedBooks >= Constants.MAX_BORROWED_BOOKS) {
-            return false
-        } else {
-            return true
-        }
+        return currentBorrowedBooks < Constants.MAX_BORROWED_BOOKS
     }
 
     fun printUrl() {
@@ -38,13 +34,14 @@ data class Book(var title: String, var author: String, var year: Int, var pages:
 /********************** Extension function on Book class ************************/
     fun Book.weight() = this.pages * 1.5
 
-    fun Book.tornPages(pagesTorn: Int) = this.pages.minus(pagesTorn)
-
+    fun Book.tornPages(pagesTorn: Int) {
+        this.pages -= pagesTorn
+    }
 
  /************************* Class utilising extension functions from Book ****************/
     class Puppy{
         fun playWithBook(book: Book){
-            var tornPages = (1..book.pages).random()            
+            var tornPages = (1 ... book.pages).random()
             book.tornPages(tornPages)
             println("Puppy played with the book and tore $tornPages, now the book has ${book.pages} pages left.")
 
