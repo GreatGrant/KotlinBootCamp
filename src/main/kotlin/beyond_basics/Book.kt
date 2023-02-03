@@ -41,7 +41,7 @@ data class Book(var title: String, var author: String, var year: Int, var pages:
  /************************* Class utilising extension functions from Book ****************/
     class Puppy{
         fun playWithBook(book: Book){
-            var tornPages = (1 ... book.pages).random()
+            var tornPages = (1 ..book.pages).random()
             book.tornPages(tornPages)
             println("Puppy played with the book and tore $tornPages, now the book has ${book.pages} pages left.")
 
