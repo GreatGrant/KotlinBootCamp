@@ -24,6 +24,10 @@ class Building<T: BaseBuildingMaterial>(buildingMaterial: T){
     init {
         println("$actualMaterialsNeeded ${buildingMaterial::class.simpleName} required")
     }
+
+    fun <T: BaseBuildingMaterial> isSmallBuilding(buildingMaterial: Building<T>){
+        println(if (buildingMaterial.baseMaterialsNeeded < 500) "small building" else "large building")
+    }
 }
 
 fun main(){
