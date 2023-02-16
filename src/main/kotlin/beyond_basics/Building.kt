@@ -33,3 +33,7 @@ class Building<T: BaseBuildingMaterial>(buildingMaterial: T){
 fun main(){
     Building(Wood())
 }
+
+fun <T: Comparable<T>> sortArray(array: Array<T>) {
+    array.sort()
+}
